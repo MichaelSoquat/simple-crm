@@ -1,6 +1,7 @@
 export class User {
     firstName: string;
     lastName: string;
+    email: string;
     birthDate: number;
     street: string;
     zipCode: number;
@@ -14,6 +15,8 @@ export class User {
         this.street = obj ? obj.street : '';
         this.zipCode = obj ? obj.zipCode : '';
         this.city = obj ? obj.city : '';
+        this.email= obj ? obj.email : '';
+
 
 
     }
@@ -25,7 +28,8 @@ export class User {
             birthDate: this.birthDate,
             street: this.street,
             zipCode: this.zipCode,
-            city: this.city
+            city: this.city,
+            email: this.email
         };
     }
 }
