@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ActivatedRoute } from '@angular/router';
+import { User } from 'src/models/user.class';
 
 @Component({
   selector: 'app-user-detail',
@@ -9,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UserDetailComponent implements OnInit {
   userId = '';
-  user: any = {};
+  user: User = new User();
   constructor(private route: ActivatedRoute, private firestore: AngularFirestore) { }
 
   ngOnInit(): void {
@@ -24,8 +25,12 @@ export class UserDetailComponent implements OnInit {
       .doc(this.userId)
       .valueChanges()
       .subscribe((user: any) => {
-        this.user = user;
+        this.user = new User(user);
         console.log('retrieve', this.user)
       })
+  }
+
+  openAddressDialog() {
+
   }
 }

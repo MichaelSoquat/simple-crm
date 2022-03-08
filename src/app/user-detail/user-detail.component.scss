@@ -1,6 +1,6 @@
 .user-detail-header {
     min-height: 250px;
-    background-color: rgb(255, 187, 0)   ;
+    background-color: rgb(255, 187, 0);
     color: white;
     display: flex;
     align-items: flex-end;
@@ -24,4 +24,10 @@
     h2 {
         margin-bottom: 0;
     }
+}
+
+.pin-right-upper-corner {
+    position: absolute;
+    right: 0;
+    top: 0;
 }
