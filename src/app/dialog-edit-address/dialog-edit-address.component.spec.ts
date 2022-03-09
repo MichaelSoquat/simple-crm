@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MatDialogModule } from '@angular/material/dialog';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { RouterModule } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 import { DialogEditAddressComponent } from './dialog-edit-address.component';
 
@@ -10,11 +13,16 @@ describe('DialogEditAddressComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterModule.forRoot([]), MatDialogModule],
-      declarations: [ DialogEditAddressComponent ],
-
+      imports: [AngularFireModule.initializeApp(environment.firebase), AngularFirestoreModule, RouterModule.forRoot([]), MatDialogModule],
+      declarations: [DialogEditAddressComponent],
+      providers: [
+        {
+          provide: MatDialogRef,
+          useValue: {}
+        }
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

@@ -11,7 +11,7 @@ import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.compo
 })
 export class DialogEditUserComponent implements OnInit {
   loading = false;
-  user: User;
+  user: User = new User;
   userId: string;
   birthDate: Date;
   constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>, private firestore: AngularFirestore) { }
